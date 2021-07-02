@@ -36,7 +36,7 @@
         tools:text="TWEEEEET" />
 
     <TextView
-        android:id="@+id/rvDate"
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
