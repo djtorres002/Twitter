@@ -34,6 +34,7 @@ public class Tweet {
         return tweet;
     }
 
+    // Returns a List of Tweets when we are given a json array
     public static List<Tweet> fromJsonArray(JSONArray jsonArray) throws JSONException {
         List<Tweet> tweets = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++) {
