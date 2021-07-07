@@ -42,4 +42,13 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="10dp"
         tools:text="date" />
+
+    <ImageView
+        android:id="@+id/ivMedia"
+        android:layout_width="341dp"
+        android:layout_height="132dp"
+        android:layout_below="@+id/tvBody"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        tools:srcCompat="@tools:sample/avatars" />
 </RelativeLayout>

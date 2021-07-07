@@ -98,14 +98,13 @@ public class TimelineActivity extends AppCompatActivity {
         client.getHomeTimeline(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
-                Log.d(TAG, "Size of json: " + json.jsonObject.length());
                 // Remember to CLEAR OUT old items before appending in the new ones
                 adapter.clear();
                 // the data has come back, now we add all the data we got back in to our adapter
                 try {
                     adapter.addAll(Tweet.fromJsonArray(json.jsonArray));
                 } catch (JSONException e) {
-                    Log.e(TAG, "error happended on refresh: " + e.getMessage());
+                    Log.d(TAG, "error happended on refresh: " + e.getMessage());
                 }
                 // Now we call setRefreshing(false) to signal refresh has finished
                 swipeRefreshLayout.setRefreshing(false);
