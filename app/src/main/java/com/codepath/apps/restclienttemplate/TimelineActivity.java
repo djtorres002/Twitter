@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -30,7 +29,7 @@ import okhttp3.Headers;
 public class TimelineActivity extends AppCompatActivity {
 
     public static final String TAG = "TimelineActivity";
-    private final int REQUEST_CODE = 20;
+    private final int COMPOSE_REQUEST = 20;
 
     SwipeRefreshLayout swipeRefreshLayout;
     TwitterClient client;
@@ -130,7 +129,7 @@ public class TimelineActivity extends AppCompatActivity {
             // Compose icon has been selected
             // Navigate to the compose activity
             Intent intent = new Intent(this, ComposeActivity.class);
-            startActivityForResult(intent, REQUEST_CODE);
+            startActivityForResult(intent, COMPOSE_REQUEST);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -138,7 +137,7 @@ public class TimelineActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
-        if (requestCode == REQUEST_CODE && requestCode == RESULT_OK){
+        if (requestCode == COMPOSE_REQUEST && resultCode == RESULT_OK){
             // Get data from the intent (tweet)
             Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
             // Update the RV with tweet
